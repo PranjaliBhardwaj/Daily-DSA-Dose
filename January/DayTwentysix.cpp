@@ -22,6 +22,33 @@ private:
         }
         return dp[i][j][remMoves]=ans; 
     }
+
+
+/* Given two strings ransomNote and magazine, return true if ransomNote can be constructed by using the letters from magazine and false otherwise.
+
+Each letter in magazine can only be used once in ransomNote.*/
+
+
+
+class Solution {
+public:
+    bool canConstruct(string t, string s) {
+        //t from s
+        unordered_map<char,int>mp;
+
+        for(int i=0;i<s.size();i++){
+            mp[s[i]]++;
+        }
+
+        for(int i=0;i<t.size();i++){
+            if(mp[t[i]]>0) mp[t[i]]--; // if have decrement its count by one from map
+    // dont have suffucient character return false you can't make it.
+            else return false;
+        }
+   // you can make it
+        return true;
+    }
+};
 public:
     int findPaths(int m, int n, int maxMove, int startRow, int startColumn) {
         memset(dp,-1,sizeof(dp));
