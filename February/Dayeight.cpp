@@ -19,6 +19,7 @@ class Solution {
          ans = min(ans , solve(n-(i*i),dp)+1);
      }
      return dp[n] = ans;
+ 
  }
 
 public:
